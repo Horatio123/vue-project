@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //default value of b is 1
+        function add(a, b=1) {
+            return a + b;
+        } 
+        console.log(add(12));
+        // num of input values
+        function num(...values) {
+            console.log(values.length);
+        }
+        num(1,2,5,6);
+
+        // arrow function
+        var print = obj => console.log(obj);
+        print("hello");
+
+        var sum = (a, b) => {return a+b};
+        var sum2 = (a, b) => a+b;
+        console.log(sum(4,9));
+        console.log(sum2(9,9));
+
+        // arrow function with structure
+        const person = {
+            name: "hoartio",
+            age: 28
+        }
+        var hello = (param) => console.log("hello " + param.name);
+        hello(person);
+        var hello2 = ({name}) => console.log("hello2 " + name);
+        hello2(person);
+
+    </script>
+</body>
+</html>

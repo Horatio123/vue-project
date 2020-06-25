@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Object
+        const person = {
+            name: "alex",
+            age: 99
+        }
+
+        console.log(Object.keys(person));
+        console.log(Object.values(person));
+        console.log(Object.entries(person));
+
+        //assign
+        target={a:1};
+        source1={b:2};
+        source2={c:3};
+
+        Object.assign(target, source1, source2)
+        console.log(target);
+
+        // object function
+        student = {
+            name: "Alexander",
+            eat: function(food) {console.log(this.name + " eat " + food)},
+            eat2: food => console.log(student.name + " eat " + food),
+            eat3(food) {console.log(this.name + " eat " + food)}
+        }
+
+        student.eat("pig");
+        student.eat2("dog");
+        student.eat3("fish");
+
+        //combine object
+
+        n={name: "Tom"};
+        a={age: 22};
+        pp={...n, ...a};
+        console.log(pp);
+    </script>
+</body>
+</html>
