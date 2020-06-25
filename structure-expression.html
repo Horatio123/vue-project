@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1,2,3];
+        // let a = arr[0];
+        // let b = arr[1];
+        // let c = arr[2];
+
+        let[a,b,c] = arr;
+        console.log(a,b,c);
+
+        const person = {
+            name: "hoartio",
+            age: 28
+        }
+
+        const{name:abc, age} = person
+        console.log(abc, age)
+
+        let str = "hello vue";
+        console.log(str.startsWith("hello"));
+        console.log(str.endsWith("e"));
+        console.log(str.includes("vu"));
+
+        let ss = `<div>
+                    <span>hello</span>
+                  </div>`;
+        console.log(ss);
+
+        function fun(){
+            return "hello vue";
+        }
+        let info = `my name is ${abc}, my age is ${age + 10}, I want to say ${fun()}`;
+        console.log(info)
+
+    </script>
+    
+    <div>
+        <span>hello</span>
+    </div>
+</body>
+</html>
