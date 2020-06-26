@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        // one example
+
+        // $.ajax({
+        //     url: "mock/user.json",
+        //     success(data) {
+        //         console.log("get user: ", data);
+        //     },
+        //     error(error) {
+        //         console.log("exception: ", error);
+        //     }
+        // });
+
+        // three example
+        // $.ajax({
+        //     url: "mock/user.json",
+        //     success(data) {
+        //         console.log("get user: ", data);
+        //         $.ajax({
+        //             url: `mock/user_course_${data.id}.json`,
+        //             success(data) {
+        //                 console.log("get course: ", data);
+        //                 $.ajax({
+        //                     url: `mock/course_score_${data.id}.json`,
+        //                     success(data){console.log("get score: ", data);},
+        //                     error(error) {console.log("get error: ", error);}
+        //                 });
+        //             },
+        //             error(error) {console.log("get error: ", error);}
+        //         });
+        //     },
+        //     error(error) {console.log("exception: ", error);}
+        // });
+
+        //new Promise
+
+        // let p = new Promise((resolve, reject) => {
+        //     $.ajax({
+        //         url: "mock/user.json",
+        //         success: data => {
+        //             console.log("get user: ", data); 
+        //             resolve(data)},
+        //         error: err => {reject(err)}
+        //     });
+        // });
+
+        // p.then(obj => {
+        //     return new Promise((resolve, reject) => {
+        //         $.ajax({
+        //             url: `mock/user_course_${obj.id}.json`,
+        //             success: data => {
+        //                 console.log("get course: ", data); 
+        //                 resolve(data)},
+        //             error: err => {reject(err)}
+        //         });
+        //     });
+        // });
+
+
+        function get(url) {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: url,
+                    success: data => {resolve(data)},
+                    error: err => {reject(err)}
+                });
+            });
+        }
+
+        get("mock/user.json")
+            .then(data => {
+                console.log("get user: ", data);
+                return get(`mock/user_course_${data.id}.json`);
+            })
+            .then(data => {
+                console.log("get course: ", data);
+                return get(`mock/course_score_${data.id}.json`);
+            })
+            .then(data => {
+                console.log("get score: ", data)
+            });
+
+    </script>
+    
+</body>
+</html>
