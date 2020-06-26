@@ -12,6 +12,10 @@
             return a + b;
         } 
         console.log(add(12));
+
+        add2=function(a,b) {return a + b};
+        console.log(add2(2,9));
+
         // num of input values
         function num(...values) {
             console.log(values.length);
@@ -19,7 +23,7 @@
         num(1,2,5,6);
 
         // arrow function
-        var print = obj => console.log(obj);
+        print = obj => console.log(obj);
         print("hello");
 
         var sum = (a, b) => {return a+b};
