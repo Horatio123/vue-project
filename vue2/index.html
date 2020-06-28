@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="num">
+        <button v-on:click="num++">zan</button>
+        <button v-on:click="cancel">cancel</button>
+        <h1>"{{name}} the number is {{num}}"</h1>
+    </div>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+
+    <script>
+        let v = new Vue({
+            el: "#app",
+            data: {
+                name: "zhonglei",
+                num: 1
+            },
+            methods: {
+                cancel(){this.num--}
+            }
+        });
+    </script>
+</body>
+</html>
