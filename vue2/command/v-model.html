@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <div id="app">
+        language: <br>
+        <input type="checkbox" v-model="language" value="Java">Java<br>
+        <input type="checkbox" v-model="language" value="C">C<br>
+        <input type="checkbox" v-model="language" value="Python">Python<br>
+        you have chose {{language.join(",")}}
+    </div>
+    <script>
+        let v = new Vue({
+            el: "#app",
+            data: {
+                language: []
+            }
+
+        });
+    </script>
+</body>
+</html>
