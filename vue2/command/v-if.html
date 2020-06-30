@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id=app>
+        <button v-on:click="random=Math.random()"> click</button>
+        <span>{{random}}</span>
+        <h1 v-if="random>=0.75"> {{random}}&gt;0.75 </h1>
+        <h1 v-else-if="random>=0.5">0.75&gt;={{random}}&gt;0.5</h1>
+        <h1 v-else-if="random>=0.25">0.5&gt;={{random}}&gt;0.25</h1>
+        <h1 v-else>{{random}}&lt;0.25</h1>
+
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        let v = new Vue({
+            el: "#app",
+            data: {random: 1}
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li>peach price is {{peachPrice}} num is <input type="number" v-model="peachNum"></li>
+            <li>apple price is {{applePrice}} num is <input type="number" v-model="appleNum"></li>
+            <span>total price is {{totalPrice}}</span>
+        </ul>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        let v = new Vue({
+            el:"#app",
+            data:{
+                peachPrice:77,
+                applePrice:66,
+                peachNum:1,
+                appleNum:1
+            },
+            computed: {
+                totalPrice() {
+                    return this.peachPrice*this.peachNum+this.applePrice*this.appleNum;
+                }
+            },
+
+        })
+    </script>
+    
+</body>
+</html>

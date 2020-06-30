@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id=app>
+        <ul>
+            <li v-for="(user,index) in users" :key="index" v-if="user.age==11">index: {{index}}==>{{user.name}}==>{{user.age}} <br>
+                <span v-for="(v,k,i) in user" :key="i"> {{k}}-->{{v}}</span>
+            </li>
+        </ul>
+    </div>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    
+    <script>
+        let v = new Vue({
+            el: "#app",
+            data: {
+                users: [{name:"horatio", age:11},
+                        {name:"alex", age:19},
+                        {name:"tom", age:11}],
+                nums: [1,2]
+            }
+        });
+
+    </script>
+</body>
+</html>
