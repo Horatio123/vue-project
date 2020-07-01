@@ -10,7 +10,8 @@
         <ul>
             <li>peach price is {{peachPrice}} num is <input type="number" v-model="peachNum"></li>
             <li>apple price is {{applePrice}} num is <input type="number" v-model="appleNum"></li>
-            <span>total price is {{totalPrice}}</span>
+            <span>total price is {{totalPrice}}</span> <br>
+            {{msg}}
         </ul>
     </div>
     <script src="../node_modules/vue/dist/vue.js"></script>
@@ -21,11 +22,23 @@
                 peachPrice:77,
                 applePrice:66,
                 peachNum:1,
-                appleNum:1
+                appleNum:1,
+                msg:''
             },
             computed: {
                 totalPrice() {
                     return this.peachPrice*this.peachNum+this.applePrice*this.appleNum;
+                }
+            },
+            watch: {
+                appleNum(newVal, oldVal) {
+                    alert("oldVal: " + oldVal + "==> newVal: " + newVal)
+                    if (newVal >= 3) {
+                        this.msg="excess limit"; 
+                        this.appleNum=3
+                    } else {
+                        this.msg=""
+                    }
                 }
             },
 

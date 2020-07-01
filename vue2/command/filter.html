@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <div id=app>
+        <ul>
+            <li v-for="student in students">
+                {{student.name}} {{student.gender | genderFilter}} {{student.gender | gFilter}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        Vue.filter("gFilter", function(val) {
+            if(val == 0) {
+                return "M----";
+            } else {
+                return "F----";
+            }
+            }
+        )
+
+        let v = new Vue({
+            el: "#app",
+            data: {
+                students: [
+                    {name:"alex", gender:0},
+                    {name: "alice", gender:1}
+                ]
+            },
+            filters: {
+                genderFilter(val) {
+                    if(val == 0) {
+                        return "M";
+                    } else {
+                        return "F";
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
