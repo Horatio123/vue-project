@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <div id=app>
+        <button v-on:click="num++">press button {{num}}</button>
+        <counter></counter>
+        <counter2></counter2>
+        
+    </div>
+
+    <div id=app2>
+        <counter>app2</counter>
+    </div>
+    
+    <script>
+        Vue.component("counter",{
+            template:'<button v-on:click="count++">press button {{count}}</button>',
+            data() {
+                return {
+                    count:1
+                }
+            }
+        });
+
+        const counter2 = {
+            template:'<button v-on:click="count++">press button2---> {{count}}</button>',
+            data() {
+                return {
+                    count:1
+                }
+            }
+        }
+        let v = new Vue({
+            el: "#app",
+            data: {
+                num:1
+            },
+            components: {
+                counter2:counter2
+            }
+        });
+
+        let v2 = new Vue({
+            el: "#app2",
+            data: {
+                num:1
+            },
+            components: {
+                counter2:counter2
+            }
+        });
+
+    </script>
+
+    
+</body>
+</html>
